@@ -5,7 +5,6 @@
   <OYTitle>Ore Yields</OYTitle>
   <OYOnlyInGame>You can only change these settings from within game.</OYOnlyInGame>
   <OYStackWarning>WARNING: You must have a mod which increases your stack sizes (like OgreStack, or StackXXL) or you will get errors and your yield will be capped at 75!</OYStackWarning>
-  <OYMultiplyAmountEndLabel>per mined chunk (+/- colonist's skills.)</OYMultiplyAmountEndLabel>
 
   <!-- Ores -->
 	<OYMultiplyAmountLabelSilver>Mined silver yield</OYMultiplyAmountLabelSilver>

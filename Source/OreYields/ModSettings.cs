@@ -62,25 +62,25 @@ namespace OreYields
 
       if (Current.ProgramState == ProgramState.Playing)
       {
-        listing.Label("OYMultiplyAmountLabelSilver".Translate() + ": [" + OreYieldsSettings.OrigAmtSilver.ToString() + " x " + (OreYieldsSettings.multiplySilver * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelSilver".Translate() + ": [" + OreYieldsSettings.OrigAmtSilver.ToString() + " x " + (OreYieldsSettings.multiplySilver * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver).ToString());
         OreYieldsSettings.multiplySilver = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplySilver, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelGold".Translate() + ": [" + OreYieldsSettings.OrigAmtGold.ToString() + " x " + (OreYieldsSettings.multiplyGold * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelGold".Translate() + ": [" + OreYieldsSettings.OrigAmtGold.ToString() + " x " + (OreYieldsSettings.multiplyGold * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold).ToString());
         OreYieldsSettings.multiplyGold = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplyGold, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelSteel".Translate() + ": [" + OreYieldsSettings.OrigAmtSteel.ToString() + " x " + (OreYieldsSettings.multiplySteel * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtSteel * OreYieldsSettings.multiplySteel).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelSteel".Translate() + ": [" + OreYieldsSettings.OrigAmtSteel.ToString() + " x " + (OreYieldsSettings.multiplySteel * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtSteel * OreYieldsSettings.multiplySteel).ToString());
         OreYieldsSettings.multiplySteel = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplySteel, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelPlasteel".Translate() + ": [" + OreYieldsSettings.OrigAmtPlasteel.ToString() + " x " + (OreYieldsSettings.multiplyPlasteel * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtPlasteel * OreYieldsSettings.multiplyPlasteel).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelPlasteel".Translate() + ": [" + OreYieldsSettings.OrigAmtPlasteel.ToString() + " x " + (OreYieldsSettings.multiplyPlasteel * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtPlasteel * OreYieldsSettings.multiplyPlasteel).ToString());
         OreYieldsSettings.multiplyPlasteel = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplyPlasteel, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelUranium".Translate() + ": [" + OreYieldsSettings.OrigAmtUranium.ToString() + " x " + (OreYieldsSettings.multiplyUranium * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtUranium * OreYieldsSettings.multiplyUranium).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelUranium".Translate() + ": [" + OreYieldsSettings.OrigAmtUranium.ToString() + " x " + (OreYieldsSettings.multiplyUranium * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtUranium * OreYieldsSettings.multiplyUranium).ToString());
         OreYieldsSettings.multiplyUranium = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplyUranium, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelJade".Translate() + ": [" + OreYieldsSettings.OrigAmtJade.ToString() + " x " + (OreYieldsSettings.multiplyJade * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtJade * OreYieldsSettings.multiplyJade).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelJade".Translate() + ": [" + OreYieldsSettings.OrigAmtJade.ToString() + " x " + (OreYieldsSettings.multiplyJade * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtJade * OreYieldsSettings.multiplyJade).ToString());
         OreYieldsSettings.multiplyJade = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplyJade, 0f, 20f));
 
-        listing.Label("OYMultiplyAmountLabelComps".Translate() + ": [" + OreYieldsSettings.OrigAmtComps.ToString() + " x " + (OreYieldsSettings.multiplyComps * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtComps * OreYieldsSettings.multiplyComps).ToString() + " " + "OYMultiplyAmountEndLabel".Translate());
+        listing.Label("OYMultiplyAmountLabelComps".Translate() + ": [" + OreYieldsSettings.OrigAmtComps.ToString() + " x " + (OreYieldsSettings.multiplyComps * 100).ToString() + "%] = " + (OreYieldsSettings.OrigAmtComps * OreYieldsSettings.multiplyComps).ToString());
         OreYieldsSettings.multiplyComps = RoundToNearestHalf(listing.Slider(OreYieldsSettings.multiplyComps, 0f, 20f));
       }
       else
@@ -96,7 +96,8 @@ namespace OreYields
 
       listing.End();
 
-      UpdateAllChanges();
+      if (Current.ProgramState == ProgramState.Playing)
+        UpdateAllChanges();
 
       base.DoSettingsWindowContents(inRect);
     }
@@ -111,7 +112,7 @@ namespace OreYields
       return (float)Math.Round(val * 2, MidpointRounding.AwayFromZero) / 2;
     }
 
-    public static void UpdateAllChanges() // I know it's a repeat, make it better please
+    public static void UpdateAllChanges()
     {
       DefDatabase<ThingDef>.GetNamed("MineableSilver").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver);
       DefDatabase<ThingDef>.GetNamed("MineableGold").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold);
