@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Main -->
+  <OYTitle>Ore Yields</OYTitle>
+  <OYOnlyInGame>これらの設定はゲーム内でのみ変更できます。</OYOnlyInGame>
+  <OYStackWarning>警告：1スタックあたりのアイテム数を増やすmodが必要です（OgreStackやStackXXLのような）。使用しない場合はエラーが発生して、採掘量が75個に制限されます。</OYStackWarning>
+
+  <!-- Ores -->
+  <OYMultiplyAmountLabelSilver>シルバーの採掘生産量</OYMultiplyAmountLabelSilver>
+  <OYMultiplyAmountLabelGold>ゴールドの採掘生産量</OYMultiplyAmountLabelGold>
+  <OYMultiplyAmountLabelSteel>スチールの採掘生産量</OYMultiplyAmountLabelSteel>
+  <OYMultiplyAmountLabelPlasteel>プラスチールの採掘生産量</OYMultiplyAmountLabelPlasteel>
+  <OYMultiplyAmountLabelUranium>ウランの採掘生産量</OYMultiplyAmountLabelUranium>
+  <OYMultiplyAmountLabelJade>ヒスイの採掘生産量</OYMultiplyAmountLabelJade>
+  <OYMultiplyAmountLabelComps>コンポーネントの採掘生産量</OYMultiplyAmountLabelComps>
+
+</LanguageData>
