@@ -88,7 +88,13 @@ namespace OreYields
         listing.Label("OYOnlyInGame".Translate());
       }
 
-      if (OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver >= 75)
+      if (OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver >= 75 ||
+          OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold >= 75 ||
+          OreYieldsSettings.OrigAmtSteel * OreYieldsSettings.multiplySteel >= 75 ||
+          OreYieldsSettings.OrigAmtPlasteel * OreYieldsSettings.multiplyPlasteel >= 75 ||
+          OreYieldsSettings.OrigAmtUranium * OreYieldsSettings.multiplyUranium >= 75 ||
+          OreYieldsSettings.OrigAmtJade * OreYieldsSettings.multiplyJade >= 75 ||
+          OreYieldsSettings.OrigAmtComps * OreYieldsSettings.multiplyComps >= 75)
       {
         listing.Label("OYStackWarning".Translate());
         listing.Gap(36);
@@ -96,7 +102,9 @@ namespace OreYields
 
       listing.End();
 
-      if (Current.ProgramState == ProgramState.Playing)
+      if (!(OreYieldsSettings.OrigAmtSilver > 0 && OreYieldsSettings.OrigAmtGold > 0 && OreYieldsSettings.OrigAmtSteel > 0 &&
+            OreYieldsSettings.OrigAmtPlasteel > 0 && OreYieldsSettings.OrigAmtUranium > 0 && OreYieldsSettings.OrigAmtJade > 0 &&
+            OreYieldsSettings.OrigAmtComps > 0) && Current.ProgramState == ProgramState.Playing)
         UpdateAllChanges();
 
       base.DoSettingsWindowContents(inRect);

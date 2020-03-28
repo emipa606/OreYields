@@ -13,28 +13,26 @@ namespace OreYields
     {
       base.FinalizeInit();
 
-      if(!(OreYieldsSettings.OrigAmtSilver > 0))
+      if (!(OreYieldsSettings.OrigAmtSilver > 0) && !(OreYieldsSettings.OrigAmtGold > 0) && !(OreYieldsSettings.OrigAmtSteel > 0) && 
+            !(OreYieldsSettings.OrigAmtPlasteel > 0) && !(OreYieldsSettings.OrigAmtUranium > 0) && !(OreYieldsSettings.OrigAmtJade > 0) && 
+            !(OreYieldsSettings.OrigAmtComps > 0))
+      {
         OreYieldsSettings.OrigAmtSilver = DefDatabase<ThingDef>.GetNamed("MineableSilver").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtGold > 0))
         OreYieldsSettings.OrigAmtGold = DefDatabase<ThingDef>.GetNamed("MineableGold").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtSteel > 0))
         OreYieldsSettings.OrigAmtSteel = DefDatabase<ThingDef>.GetNamed("MineableSteel").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtPlasteel > 0))
         OreYieldsSettings.OrigAmtPlasteel = DefDatabase<ThingDef>.GetNamed("MineablePlasteel").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtUranium > 0))
         OreYieldsSettings.OrigAmtUranium = DefDatabase<ThingDef>.GetNamed("MineableUranium").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtJade > 0))
         OreYieldsSettings.OrigAmtJade = DefDatabase<ThingDef>.GetNamed("MineableJade").building.mineableYield;
-      if (!(OreYieldsSettings.OrigAmtComps > 0))
         OreYieldsSettings.OrigAmtComps = DefDatabase<ThingDef>.GetNamed("MineableComponentsIndustrial").building.mineableYield;
 
-      DefDatabase<ThingDef>.GetNamed("MineableSilver").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver);
-      DefDatabase<ThingDef>.GetNamed("MineableGold").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold);
-      DefDatabase<ThingDef>.GetNamed("MineableSteel").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtSteel * OreYieldsSettings.multiplySteel);
-      DefDatabase<ThingDef>.GetNamed("MineablePlasteel").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtPlasteel * OreYieldsSettings.multiplyPlasteel);
-      DefDatabase<ThingDef>.GetNamed("MineableUranium").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtUranium * OreYieldsSettings.multiplyUranium);
-      DefDatabase<ThingDef>.GetNamed("MineableJade").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtJade * OreYieldsSettings.multiplyJade);
-      DefDatabase<ThingDef>.GetNamed("MineableComponentsIndustrial").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtComps * OreYieldsSettings.multiplyComps);
+        DefDatabase<ThingDef>.GetNamed("MineableSilver").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtSilver * OreYieldsSettings.multiplySilver);
+        DefDatabase<ThingDef>.GetNamed("MineableGold").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtGold * OreYieldsSettings.multiplyGold);
+        DefDatabase<ThingDef>.GetNamed("MineableSteel").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtSteel * OreYieldsSettings.multiplySteel);
+        DefDatabase<ThingDef>.GetNamed("MineablePlasteel").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtPlasteel * OreYieldsSettings.multiplyPlasteel);
+        DefDatabase<ThingDef>.GetNamed("MineableUranium").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtUranium * OreYieldsSettings.multiplyUranium);
+        DefDatabase<ThingDef>.GetNamed("MineableJade").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtJade * OreYieldsSettings.multiplyJade);
+        DefDatabase<ThingDef>.GetNamed("MineableComponentsIndustrial").building.mineableYield = (int)Math.Floor(OreYieldsSettings.OrigAmtComps * OreYieldsSettings.multiplyComps);
+      }
     }
   }
 }
