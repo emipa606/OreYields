@@ -6,6 +6,11 @@
   <OYOnlyInGame>You can only change these settings from within game.</OYOnlyInGame>
   <OYStackWarning>WARNING: You must have a mod which increases your stack sizes (like OgreStack, or StackXXL) or you will get errors and your yield will be capped at 75!</OYStackWarning>
 
+  <YieldsHeader>Ore Yields</YieldsHeader>
+  <MassHeader>Ore Mass</MassHeader>
+
+  <ResetValues>Reset Default Values</ResetValues>
+
   <!-- Ores -->
 	<OYMultiplyAmountLabelSilver>Mined silver yield</OYMultiplyAmountLabelSilver>
   <OYMultiplyAmountLabelGold>Mined gold yield</OYMultiplyAmountLabelGold>
@@ -14,5 +19,13 @@
   <OYMultiplyAmountLabelUranium>Mined uranium yield</OYMultiplyAmountLabelUranium>
   <OYMultiplyAmountLabelJade>Mined jade yield</OYMultiplyAmountLabelJade>
   <OYMultiplyAmountLabelComps>Mined component yield</OYMultiplyAmountLabelComps>
+
+  <multiplySilverMass>Silver's mass</multiplySilverMass>
+  <multiplyGoldMass>Gold's mass</multiplyGoldMass>
+  <multiplySteelMass>Steel's mass</multiplySteelMass>
+  <multiplyPlasteelMass>Plasteel's mass</multiplyPlasteelMass>
+  <multiplyUraniumMass>Uranium's mass</multiplyUraniumMass>
+  <multiplyJadeMass>Jade's mass</multiplyJadeMass>
+  <multiplyCompsMass>Component's mass</multiplyCompsMass>
   
 </LanguageData>
