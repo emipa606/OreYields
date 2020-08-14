@@ -4,6 +4,7 @@
   <author>Neceros</author>
   <supportedVersions>
     <li>1.1</li>
+    <li>1.2</li>
   </supportedVersions>
   <packageId>neceros.oreyields</packageId>
   <description>Set how much material drops when you mine it from the world. Works for vanilla ores/metals/components.</description>
