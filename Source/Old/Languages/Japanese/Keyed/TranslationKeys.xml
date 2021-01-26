@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Main -->
+  <OYTitle>Ore Yields</OYTitle>
+  <OYOnlyInGame>これらの設定はゲーム内でのみ変更できます。</OYOnlyInGame>
+  <OYStackWarning>警告：1スタックあたりのアイテム数を増やすmodが必要です（OgreStackやStackXXLのような）。使用しない場合はエラーが発生して、採掘量が75個に制限されます。</OYStackWarning>
+  <YieldsHeader>鉱石採掘量</YieldsHeader>
+  <MassHeader>鉱石重量</MassHeader>
+  <ResetValues>デフォルト値にリセット</ResetValues>
+  <!-- Ores -->
+  <OYMultiplyAmountLabelSilver>シルバーの採掘生産量</OYMultiplyAmountLabelSilver>
+  <OYMultiplyAmountLabelGold>ゴールドの採掘生産量</OYMultiplyAmountLabelGold>
+  <OYMultiplyAmountLabelSteel>スチールの採掘生産量</OYMultiplyAmountLabelSteel>
+  <OYMultiplyAmountLabelPlasteel>プラスチールの採掘生産量</OYMultiplyAmountLabelPlasteel>
+  <OYMultiplyAmountLabelUranium>ウランの採掘生産量</OYMultiplyAmountLabelUranium>
+  <OYMultiplyAmountLabelJade>ヒスイの採掘生産量</OYMultiplyAmountLabelJade>
+  <OYMultiplyAmountLabelComps>コンポーネントの採掘生産量</OYMultiplyAmountLabelComps>
+  <multiplySilverMass>シルバーの重量</multiplySilverMass>
+  <multiplyGoldMass>ゴールドの重量</multiplyGoldMass>
+  <multiplySteelMass>スチールの重量</multiplySteelMass>
+  <multiplyPlasteelMass>プラスチールの重量</multiplyPlasteelMass>
+  <multiplyUraniumMass>ウランの重量</multiplyUraniumMass>
+  <multiplyJadeMass>ヒスイの重量</multiplyJadeMass>
+  <multiplyCompsMass>コンポーネントの重量</multiplyCompsMass>
+</LanguageData>
