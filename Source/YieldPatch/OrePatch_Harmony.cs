@@ -28,7 +28,7 @@ namespace YieldPatch
                     return;
                 }
 
-                __result = (int) Math.Round(__result * YieldPatchMod.settings.modifiedThings[thingParent.defName], 1);
+                __result = (int)Math.Round(__result * YieldPatchMod.settings.modifiedThings[thingParent.defName], 1);
             }
         }
 
