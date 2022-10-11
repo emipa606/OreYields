@@ -1,5 +1,8 @@
 # Changelog for OreYields
 
+1.4.1 - Mod updated for 1.4 and passed autotests
+
+
 1.0.3.0 - New version of 1SettingsHelper
 
 

@@ -10,4 +10,5 @@
   <OYIncreaseByTen>+10%</OYIncreaseByTen>
   <OYDecreaseByTenLabel>Decrease all values by 10%</OYDecreaseByTenLabel>
   <OYDecreaseByTen>-10%</OYDecreaseByTen>
+  <OYModVersionLabel>Installed mod-version: {0}</OYModVersionLabel>
 </LanguageData>

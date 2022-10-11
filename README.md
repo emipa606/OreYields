@@ -11,15 +11,6 @@ with their approval
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/OreYields]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
@@ -30,13 +21,6 @@ Set how much material drops when you mine it from the world (in the mod settings
 
 
 [strike]**Japanese** via Proxyer[/strike]
-
-
-![Image](https://i.imgur.com/2Zpv4mk.png)
-
-
-![Image](https://i.imgur.com/NpuFU7v.png)
-
 
 ![Image](https://i.imgur.com/s3KRLlu.gif)
 
@@ -57,6 +41,7 @@ https://steamcommunity.com/id/TheBigN/myworkshopfiles/?appid=294100andp=1andnump
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 
