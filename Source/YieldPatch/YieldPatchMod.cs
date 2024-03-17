@@ -27,7 +27,7 @@ internal class YieldPatchMod : Mod
     {
         settings = GetSettings<YieldPatchSettings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(ModLister.GetActiveModWithIdentifier("Mlie.OreYields"));
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     /// <summary>

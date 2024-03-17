@@ -23,12 +23,13 @@ internal class OrePatch_Harmony
                 (from ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading
                     where thingDef.building != null && thingDef.building.mineableThing == __instance.mineableThing
                     select thingDef).FirstOrDefault();
-            if (thingParent == null || !YieldPatchMod.settings.modifiedThings.ContainsKey(thingParent.defName))
+            if (thingParent == null ||
+                !YieldPatchMod.settings.modifiedThings.TryGetValue(thingParent.defName, out var thing))
             {
                 return;
             }
 
-            __result = (int)Math.Round(__result * YieldPatchMod.settings.modifiedThings[thingParent.defName], 1);
+            __result = (int)Math.Round(__result * thing, 1);
         }
     }
 
@@ -37,12 +38,12 @@ internal class OrePatch_Harmony
     {
         private static void Postfix(ref float __result, ThingDef __instance)
         {
-            if (!YieldPatchMod.settings.modifiedMass.ContainsKey(__instance.defName))
+            if (!YieldPatchMod.settings.modifiedMass.TryGetValue(__instance.defName, out var value))
             {
                 return;
             }
 
-            __result *= YieldPatchMod.settings.modifiedMass[__instance.defName];
+            __result *= value;
         }
     }
 
@@ -56,12 +57,12 @@ internal class OrePatch_Harmony
                 return;
             }
 
-            if (!YieldPatchMod.settings.modifiedMass.ContainsKey(thing.def.defName))
+            if (!YieldPatchMod.settings.modifiedMass.TryGetValue(thing.def.defName, out var value))
             {
                 return;
             }
 
-            __result *= YieldPatchMod.settings.modifiedMass[thing.def.defName];
+            __result *= value;
         }
     }
 }

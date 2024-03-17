@@ -27,19 +27,19 @@ public static class SettingsInit
         var tempList2 = new Dictionary<string, float>();
         foreach (var thingDef in thingsWithYield)
         {
-            if (YieldPatchMod.settings.modifiedThings.ContainsKey(thingDef.defName))
+            if (YieldPatchMod.settings.modifiedThings.TryGetValue(thingDef.defName, out var thing))
             {
-                tempList[thingDef.defName] = YieldPatchMod.settings.modifiedThings[thingDef.defName];
+                tempList[thingDef.defName] = thing;
             }
             else
             {
                 tempList[thingDef.defName] = YieldPatchSettings.baseValue;
             }
 
-            if (YieldPatchMod.settings.modifiedMass.ContainsKey(thingDef.building.mineableThing.defName))
+            if (YieldPatchMod.settings.modifiedMass.TryGetValue(thingDef.building.mineableThing.defName, out var value))
             {
                 tempList2[thingDef.building.mineableThing.defName] =
-                    YieldPatchMod.settings.modifiedMass[thingDef.building.mineableThing.defName];
+                    value;
             }
             else
             {
