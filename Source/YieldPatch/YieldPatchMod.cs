@@ -10,14 +10,14 @@ internal class YieldPatchMod : Mod
     /// <summary>
     ///     The instance of the settings to be read by the mod
     /// </summary>
-    public static YieldPatchMod instance;
+    public static YieldPatchMod Instance;
 
-    public static string currentVersion;
+    public static string CurrentVersion;
 
     /// <summary>
     ///     The private settings
     /// </summary>
-    public static YieldPatchSettings settings;
+    public static YieldPatchSettings Settings;
 
     /// <summary>
     ///     Cunstructor
@@ -25,8 +25,9 @@ internal class YieldPatchMod : Mod
     /// <param name="content"></param>
     public YieldPatchMod(ModContentPack content) : base(content)
     {
-        settings = GetSettings<YieldPatchSettings>();
-        currentVersion =
+        Instance = this;
+        Settings = GetSettings<YieldPatchSettings>();
+        CurrentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
@@ -46,6 +47,6 @@ internal class YieldPatchMod : Mod
     public override void DoSettingsWindowContents(Rect inRect)
     {
         base.DoSettingsWindowContents(inRect);
-        settings.DoSettingsWindowContents(inRect);
+        Settings.DoSettingsWindowContents(inRect);
     }
 }

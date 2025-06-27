@@ -13,43 +13,25 @@ public static class SettingsInit
             where thingDef.building is { isResourceRock: true }
             orderby thingDef.label
             select thingDef;
-        if (YieldPatchMod.settings.modifiedThings == null)
-        {
-            YieldPatchMod.settings.modifiedThings = new Dictionary<string, float>();
-        }
+        YieldPatchMod.Settings.ModifiedThings ??= new Dictionary<string, float>();
 
-        if (YieldPatchMod.settings.modifiedMass == null)
-        {
-            YieldPatchMod.settings.modifiedMass = new Dictionary<string, float>();
-        }
+        YieldPatchMod.Settings.ModifiedMass ??= new Dictionary<string, float>();
 
         var tempList = new Dictionary<string, float>();
         var tempList2 = new Dictionary<string, float>();
         foreach (var thingDef in thingsWithYield)
         {
-            if (YieldPatchMod.settings.modifiedThings.TryGetValue(thingDef.defName, out var thing))
-            {
-                tempList[thingDef.defName] = thing;
-            }
-            else
-            {
-                tempList[thingDef.defName] = YieldPatchSettings.baseValue;
-            }
+            tempList[thingDef.defName] =
+                YieldPatchMod.Settings.ModifiedThings.GetValueOrDefault(thingDef.defName, YieldPatchSettings.BaseValue);
 
-            if (YieldPatchMod.settings.modifiedMass.TryGetValue(thingDef.building.mineableThing.defName, out var value))
-            {
-                tempList2[thingDef.building.mineableThing.defName] =
-                    value;
-            }
-            else
-            {
-                tempList2[thingDef.building.mineableThing.defName] = YieldPatchSettings.baseValue;
-            }
+            tempList2[thingDef.building.mineableThing.defName] =
+                YieldPatchMod.Settings.ModifiedMass.GetValueOrDefault(thingDef.building.mineableThing.defName,
+                    YieldPatchSettings.BaseValue);
         }
 
-        YieldPatchMod.settings.modifiedThings = tempList;
-        YieldPatchMod.settings.modifiedMass = tempList2;
+        YieldPatchMod.Settings.ModifiedThings = tempList;
+        YieldPatchMod.Settings.ModifiedMass = tempList2;
         Log.Message(
-            $"[Ore Yields]: Found {thingsWithYield.Count()} minable things: {string.Join(", ", YieldPatchMod.settings.modifiedThings.Keys)}");
+            $"[Ore Yields]: Found {thingsWithYield.Count()} minable things: {string.Join(", ", YieldPatchMod.Settings.ModifiedThings.Keys)}");
     }
 }

@@ -11,17 +11,16 @@ namespace YieldPatch;
 /// </summary>
 internal class YieldPatchSettings : ModSettings
 {
+    private const float MaxYieldValue = 20f;
+    private const float MaxMassValue = 5f;
+
+    public const float BaseValue = 1f;
+    private const float LowValue = 0.01f;
     private static Vector2 scrollPosition = Vector2.zero;
-
-    private static readonly float maxYieldValue = 20f;
-    private static readonly float maxMassValue = 5f;
-
-    public static readonly float baseValue = 1f;
-    private static readonly float lowValue = 0.01f;
-    public Dictionary<string, float> modifiedMass = new Dictionary<string, float>();
+    public Dictionary<string, float> ModifiedMass = new();
     private List<string> modifiedMassKeys;
     private List<float> modifiedMassValues;
-    public Dictionary<string, float> modifiedThings = new Dictionary<string, float>();
+    public Dictionary<string, float> ModifiedThings = new();
 
     private List<string> modifiedThingsKeys;
     private List<float> modifiedThingsValues;
@@ -33,15 +32,15 @@ internal class YieldPatchSettings : ModSettings
     public override void ExposeData()
     {
         base.ExposeData();
-        Scribe_Collections.Look(ref modifiedThings, "modifiedThings", LookMode.Value, LookMode.Value,
+        Scribe_Collections.Look(ref ModifiedThings, "modifiedThings", LookMode.Value, LookMode.Value,
             ref modifiedThingsKeys, ref modifiedThingsValues);
-        Scribe_Collections.Look(ref modifiedMass, "modifiedMass", LookMode.Value, LookMode.Value,
+        Scribe_Collections.Look(ref ModifiedMass, "modifiedMass", LookMode.Value, LookMode.Value,
             ref modifiedMassKeys, ref modifiedMassValues);
     }
 
     public void DoSettingsWindowContents(Rect inRect)
     {
-        var keys = modifiedThings.Keys.ToList();
+        var keys = ModifiedThings.Keys.ToList();
         keys.Reverse();
         var rect = new Rect(inRect.x, inRect.y, inRect.width, inRect.height);
         var rect2 = new Rect(0f, 0f, inRect.width - 30f, 500 + (keys.Count * 60));
@@ -56,7 +55,7 @@ internal class YieldPatchSettings : ModSettings
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedThings[keys[num]] = baseValue;
+                ModifiedThings[keys[num]] = BaseValue;
             }
         }
 
@@ -64,10 +63,10 @@ internal class YieldPatchSettings : ModSettings
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedThings[keys[num]] *= 1.1f;
-                if (modifiedThings[keys[num]] > maxYieldValue)
+                ModifiedThings[keys[num]] *= 1.1f;
+                if (ModifiedThings[keys[num]] > MaxYieldValue)
                 {
-                    modifiedThings[keys[num]] = maxYieldValue;
+                    ModifiedThings[keys[num]] = MaxYieldValue;
                 }
             }
         }
@@ -76,31 +75,31 @@ internal class YieldPatchSettings : ModSettings
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedThings[keys[num]] *= 0.9f;
+                ModifiedThings[keys[num]] *= 0.9f;
             }
         }
 
         for (var num = keys.Count - 1; num >= 0; num--)
         {
             var thing = DefDatabase<ThingDef>.GetNamed(keys[num]);
-            var value = modifiedThings[keys[num]];
-            value = Widgets.HorizontalSlider(listingStandard.GetRect(35f), value, 0, maxYieldValue, false,
+            var value = ModifiedThings[keys[num]];
+            value = Widgets.HorizontalSlider(listingStandard.GetRect(35f), value, 0, MaxYieldValue, false,
                 $"{thing.label.CapitalizeFirst()}: {Math.Round(thing.building.mineableYield * value, 0)}", null, null,
                 0.01f);
-            modifiedThings[keys[num]] = value;
+            ModifiedThings[keys[num]] = value;
         }
 
         listingStandard.GapLine();
         listingStandard.Label("OYTitleFour".Translate());
 
         listingStandard.Gap();
-        keys = modifiedMass.Keys.ToList();
+        keys = ModifiedMass.Keys.ToList();
         keys.Reverse();
         if (listingStandard.ButtonTextLabeled("OYResetLabel".Translate(), "Reset".Translate()))
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedMass[keys[num]] = baseValue;
+                ModifiedMass[keys[num]] = BaseValue;
             }
         }
 
@@ -108,10 +107,10 @@ internal class YieldPatchSettings : ModSettings
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedMass[keys[num]] *= 1.1f;
-                if (modifiedMass[keys[num]] > maxMassValue)
+                ModifiedMass[keys[num]] *= 1.1f;
+                if (ModifiedMass[keys[num]] > MaxMassValue)
                 {
-                    modifiedMass[keys[num]] = maxMassValue;
+                    ModifiedMass[keys[num]] = MaxMassValue;
                 }
             }
         }
@@ -120,10 +119,10 @@ internal class YieldPatchSettings : ModSettings
         {
             for (var num = keys.Count - 1; num >= 0; num--)
             {
-                modifiedMass[keys[num]] *= 0.9f;
-                if (modifiedMass[keys[num]] < lowValue)
+                ModifiedMass[keys[num]] *= 0.9f;
+                if (ModifiedMass[keys[num]] < LowValue)
                 {
-                    modifiedMass[keys[num]] = lowValue;
+                    ModifiedMass[keys[num]] = LowValue;
                 }
             }
         }
@@ -131,18 +130,18 @@ internal class YieldPatchSettings : ModSettings
         for (var num = keys.Count - 1; num >= 0; num--)
         {
             var thing = DefDatabase<ThingDef>.GetNamed(keys[num]);
-            var value = modifiedMass[keys[num]];
-            value = Widgets.HorizontalSlider(listingStandard.GetRect(35f), value, lowValue, maxMassValue, false,
-                $"{thing.label.CapitalizeFirst()}: {Math.Max(lowValue / 10, thing.BaseMass)}", null, null,
+            var value = ModifiedMass[keys[num]];
+            value = Widgets.HorizontalSlider(listingStandard.GetRect(35f), value, LowValue, MaxMassValue, false,
+                $"{thing.label.CapitalizeFirst()}: {Math.Max(LowValue / 10, thing.BaseMass)}", null, null,
                 0.01f);
-            modifiedMass[keys[num]] = value;
+            ModifiedMass[keys[num]] = value;
         }
 
-        if (YieldPatchMod.currentVersion != null)
+        if (YieldPatchMod.CurrentVersion != null)
         {
             listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listingStandard.Label("OYModVersionLabel".Translate(YieldPatchMod.currentVersion));
+            listingStandard.Label("OYModVersionLabel".Translate(YieldPatchMod.CurrentVersion));
             GUI.contentColor = Color.white;
         }
 
