@@ -8,7 +8,7 @@ namespace YieldPatch;
     typeof(int))]
 public static class StatExtension_GetStatValue
 {
-    private static void Postfix(Thing thing, StatDef stat, ref float __result)
+    public static void Postfix(Thing thing, StatDef stat, ref float __result)
     {
         if (stat != StatDefOf.Mass)
         {

@@ -9,7 +9,7 @@ namespace YieldPatch;
 [HarmonyPatch(typeof(BuildingProperties), nameof(BuildingProperties.EffectiveMineableYield), MethodType.Getter)]
 public static class BuildingProperties_EffectiveMineableYield
 {
-    private static void Postfix(ref int __result, BuildingProperties __instance)
+    public static void Postfix(ref int __result, BuildingProperties __instance)
     {
         var thingParent =
             (from ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading

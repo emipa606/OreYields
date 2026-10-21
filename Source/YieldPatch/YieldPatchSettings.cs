@@ -18,13 +18,13 @@ internal class YieldPatchSettings : ModSettings
     private const float LowValue = 0.01f;
     private static Vector2 scrollPosition = Vector2.zero;
     public Dictionary<string, float> ModifiedMass = new();
+    public Dictionary<string, float> ModifiedThings = new();
+    public float UraniumMultiplier = 1f;
     private List<string> modifiedMassKeys;
     private List<float> modifiedMassValues;
-    public Dictionary<string, float> ModifiedThings = new();
 
     private List<string> modifiedThingsKeys;
     private List<float> modifiedThingsValues;
-    public float UraniumMultiplier = 1f;
 
     /// <summary>
     ///     Saving and loading the values
